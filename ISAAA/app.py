@@ -135,7 +135,7 @@ def get_user_by_id(user_id):
 # --- Twilio Config ---
 
 
-def send_whatsapp_message(to, message):
+
     client.messages.create(body=message, from_=TWILIO_PHONE_NUMBER, to=f'whatsapp:{to}')
 
 # --- Routes ---
