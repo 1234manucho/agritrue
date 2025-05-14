@@ -22,7 +22,7 @@ app.secret_key = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-openai.api_key = "your_openai_api_key"
+#openai.api_key = "your_openai_api_key"
 
 # --- Flask-Login Setup ---
 login_manager = LoginManager(app)
@@ -133,10 +133,7 @@ def get_user_by_id(user_id):
     return query_db("SELECT id, username, password, is_admin FROM users WHERE id=?", (user_id,), one=True)
 
 # --- Twilio Config ---
-TWILIO_PHONE_NUMBER = 'whatsapp:+14155238886'
-TWILIO_SID = 'your_twilio_sid'
-TWILIO_AUTH_TOKEN = 'your_twilio_auth_token'
-client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
+
 
 def send_whatsapp_message(to, message):
     client.messages.create(body=message, from_=TWILIO_PHONE_NUMBER, to=f'whatsapp:{to}')
